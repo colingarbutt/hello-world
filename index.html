@@ -1,0 +1,100 @@
+<html lang="en">
+<!--   change 1 -->
+
+<head>
+
+  <!--
+    want to do this by "import"ing in a module - but you don't seem to be able
+    to do that without node
+  -->
+  <script src="https://unpkg.com/split.js/split.js"></script>
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+  <style>
+    html {
+  	/* account for scroll bar extra height */
+  	height: 98%;
+  }
+
+  body {
+  	background-color: snow;
+  	box-sizing: border-box;
+
+  	height: 100%;
+  }
+  .root-container{
+    height: 100%;
+  }
+  .content {
+  	padding: 8px;
+  	border: 1px solid #c0c0c0;
+  	box-shadow: inset 0 1px 2px #e4e4e4;
+  	background-color: #fff;
+
+  	height: 100%;
+  }
+
+
+  </style>
+
+</head>
+
+<body>
+
+
+  <header class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-top-app-bar--dense">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+        <span class="mdc-top-app-bar__title">Title</span>
+      </section>
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+        <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Download" alt="Download">file_download</a>
+        <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Print this page" alt="Print this page">print</a>
+        <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Bookmark this page" alt="Bookmark this page">bookmark</a>
+      </section>
+    </div>
+  </header>
+
+  <script>
+    mdc.autoInit()
+  // Instantiation
+    const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+    const topAppBar = new mdc.topAppBar.MDCTopAppBar(topAppBarElement);
+  </script>
+
+  <div class="root-container">
+    <div id="lft" class="split split-horizontal">
+      <div class="content">
+        <span id="lefty">left</span>
+        <button class="foo-button mdc-button">Button</button>
+      </div>
+    </div>
+    <div id="rgt" class="split split-horizontal">
+      <div id="top" class="split split-vertical">
+        <div class="content">top</div>
+      </div>
+      <div id="bot" class="split split-vertical">
+        <div class="content">bottom</div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script type="module">
+
+    import {main_do_stuff} from "./main.js";
+
+    main_do_stuff()
+
+
+  </script>
+
+</body>
+
+
+</html>
